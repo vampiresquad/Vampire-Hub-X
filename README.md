@@ -19,7 +19,7 @@
 
 **Vampire-Hub-X** is a multi-featured, terminal-based professional cybersecurity toolkit developed by **Muhammad Shourov (VAMPIRE)** — designed for both beginners & advanced hackers.
 
-- **Admin Mode** (With Password `SH404`) — Grants access to high-powered DDoS & Info-Gathering tools (Encrypted).
+- **Admin Mode** (With Password) — Grants access to high-powered DDoS & Info-Gathering tools (Encrypted).
 - **Normal Mode** (Free Access) — Gives limited but useful features for learners.
 - Everything inside is **fully encrypted**, secure, & protected from code theft.
 
