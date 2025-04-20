@@ -80,4 +80,4 @@ check_install
 chmod +x hub.py >/dev/null 2>&1
 
 echo -e "${G}[✓] All dependencies installed successfully!${NC}"
-echo -e "${Y}[!] To run the tool: ${C}python hub.py${NC}"
+echo -e "${Y}[!] To run the tool: ${C}python3 hub.py${NC}"
