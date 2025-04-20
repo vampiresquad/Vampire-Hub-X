@@ -1,1 +1,25 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
 
+# Encrypted core files (keep secret)
+core/*.enc
+
+# System files
+.DS_Store
+.env
+
+# Logs and temp
+*.log
+*.tmp
+
+# Backups
+*.bak
+
+# IDE and editor config
+.vscode/
+.idea/
+
+# Git itself
+.git/
