@@ -34,7 +34,7 @@
 - [x] Encrypted Core Files (Admin Only)
 - [x] Auto Error Detection & Auto-Fixer
 - [x] Compatible with Termux, Ubuntu, Linux
-- [x] Secure Entry via Master Password (`VampireX`)
+- [x] Secure Entry via Master Password ** ('Collect Form Developer') **
 - [x] Banner + Disclaimer per Mode
 - [x] Professional Module Structure
 
@@ -44,7 +44,7 @@
 
 | Mode         | Access        | Features                                   |
 |--------------|---------------|--------------------------------------------|
-| Admin Mode   | Password: `SH404` | High-Level Tools (Encrypted) + Hidden Modules |
+| Admin Mode   | Password: ('Collect Form Developer') | High-Level Tools (Encrypted) + Hidden Modules |
 | Normal Mode  | No Password   | Basic Tools for Educational Use            |
 
 ---
