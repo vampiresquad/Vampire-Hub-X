@@ -1,1 +1,38 @@
+#!/bin/bash
 
+slow_type() {
+    text="$1"
+    delay="${2:-0.03}"
+    for (( i=0; i<${#text}; i++ )); do
+        echo -ne "${text:$i:1}"
+        sleep $delay
+    done
+    echo
+}
+
+clear
+CYAN='\033[1;36m'
+YELLOW='\033[1;33m'
+GREEN='\033[1;32m'
+NC='\033[0m'
+
+echo -e "${CYAN}"
+slow_type "═════════════════════════════════════════════"
+slow_type "         Welcome to Vampire-Hub-X"
+slow_type "═════════════════════════════════════════════"
+echo -e "${YELLOW}"
+slow_type "This tool is created for:"
+slow_type "  - Ethical Hacking Students"
+slow_type "  - Cybersecurity Enthusiasts"
+slow_type "  - Information Gathering & DDoS Testing"
+echo ""
+echo -e "${GREEN}"
+slow_type "[!] Usage Terms:"
+slow_type "    -> Use only on targets you own or have permission for."
+slow_type "    -> Developer is not responsible for misuse."
+slow_type "    -> Educational purposes only."
+echo ""
+slow_type "Respect the community, follow the ethics, and grow your skills."
+
+echo -e "${NC}"
+sleep 1
