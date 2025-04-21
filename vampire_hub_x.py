@@ -8,6 +8,27 @@ from core.disclaimer import show_disclaimer
 from core.error_fix import auto_fix_tools
 from utils.colors import *
 
+# ===== Smart Check for Required Directories & Files ===== #
+required_structure = {
+    "core": ["admin_panel.py", "user_panel.py", "banner.py", "auth.py", "disclaimer.py", "error_fix.py"],
+    "utils": ["colors.py"],
+    "modules": [],  # Add more as needed
+}
+
+def smart_structure_check():
+    print(f"{blue}[~] Checking essential file/folder structure...{reset}")
+    for folder, files in required_structure.items():
+        if not os.path.isdir(folder):
+            print(f"{red}[!] Missing folder: {folder}. Creating...{reset}")
+            os.makedirs(folder)
+
+        for file in files:
+            path = os.path.join(folder, file)
+            if not os.path.exists(path):
+                print(f"{yellow}[!] Missing file: {path} (You may want to add it manually later).{reset}")
+    print(f"{green}[✓] Structure check complete.{reset}")
+    time.sleep(1)
+
 def initialize():
     os.system("clear")
     display_banner()
@@ -29,9 +50,9 @@ def main():
 
 def setup_tools():
     print(f"{green}[+] Performing automatic tool integrity check...{reset}")
-    auto_fix_tools()  # Automatically fixes missing tools and dependencies
-    time.sleep(1)
-    print(f"{green}[+] All required tools are ready.{reset}")
+    smart_structure_check()     # <-- New structure validation
+    auto_fix_tools()            # Existing tool checker
+    print(f"{green}[✓] All required tools are ready.{reset}")
     time.sleep(1)
 
 def run():
