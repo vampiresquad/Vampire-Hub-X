@@ -2,6 +2,7 @@
 
 import os
 import time
+import shutil
 from modules import ddos, recon, encryption
 from utils.colors import *
 from utils.helper import slow_print
@@ -15,7 +16,7 @@ def tool_integrity_check():
     essential_tools = ["curl", "python3", "git", "nmap", "whois"]
     for tool in essential_tools:
         print(f"{blue}[*] Checking {tool}...{reset}")
-        if os.system(f"command -v {tool} > /dev/null") != 0:
+        if shutil.which(tool) is None:
             print(f"{red}[!] {tool} not found. Attempting auto-fix...{reset}")
             os.system(f"pkg install -y {tool} || apt install -y {tool}")
         else:
