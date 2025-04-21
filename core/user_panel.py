@@ -2,50 +2,45 @@
 
 import os
 import time
-from modules import ddos, recon
+from modules import ddos, recon, encryption
 from utils.colors import *
 from utils.helper import slow_print
+from core.banner import show_user_banner
+from core.disclaimer import show_user_disclaimer
+from core.error_fix import basic_auto_fixer
 
-def user_banner():
+def show_user_panel():
     os.system("clear")
-    print(f"""{blue}
- █████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█████
- ████▒▒{yellow}         FREE USER ACCESS         {blue}▒▒████
- ███▒▒{green}      Created by: Muhammad Shourov     {blue}▒▒███
- ██▒▒{cyan} Founder & CEO: Vampire Squad (VAMPIRE)  {blue}▒▒██
- ██▒▒{cyan} GitHub     : github.com/vampiresquad     {blue}▒▒██
- ██▒▒{cyan} Facebook   : fb.com/Junior.Writer.SHourov {blue}▒▒██
- ██▒▒{cyan} Email      : vampiresquad.org@gmail.com   {blue}▒▒██
- █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
-{reset}""")
+    show_user_banner()
+    show_user_disclaimer()
 
-def user_disclaimer():
-    slow_print(f"{cyan}Welcome to Vampire-Hub-X [Free User Mode]")
-    slow_print(f"{red}Warning: You are using the limited version of this tool.")
-    slow_print(f"{yellow}Upgrade to Admin Mode for full power and advanced features.")
-    slow_print(f"{green}Use all features ethically. Unauthorized use is prohibited.{reset}\n")
-    time.sleep(1)
-
-def show_user_menu():
     while True:
-        user_banner()
-        print(f"""{magenta}
- [1] Basic DDoS Attack (Safe Mode)
- [2] Basic Recon & Info Gathering
- [3] Exit User Panel
+        print(f"""{cyan}
+ [1] Start Lightweight DDoS Test
+ [2] Basic Reconnaissance
+ [3] Simple Encryption Tool
+ [4] Fix Common Errors Automatically
+ [5] Exit User Panel
 {reset}""")
         try:
-            choice = input(f"{yellow}[+] Select Option: {reset}")
+            choice = input(f"{yellow}[+] Choose an option: {reset}")
             if choice == '1':
                 ddos.run_user_ddos()
             elif choice == '2':
                 recon.run_user_recon()
             elif choice == '3':
-                print(f"{cyan}[-] Exiting User Panel...{reset}")
+                encryption.run_basic_encryption()
+            elif choice == '4':
+                basic_auto_fixer()
+            elif choice == '5':
+                print(f"{cyan}[-] Exiting User Mode... Stay Ethical!{reset}")
                 break
             else:
-                print(f"{red}[!] Invalid option. Try again.{reset}")
+                print(f"{red}[!] Invalid Option. Try Again.{reset}")
                 time.sleep(1)
         except KeyboardInterrupt:
-            print(f"\n{red}[-] Interrupted by user. Returning...{reset}")
+            print(f"\n{red}[-] Interrupted. Returning to main menu.{reset}")
             break
+        except Exception as e:
+            print(f"{red}[!] Error: {e}{reset}")
+            basic_auto_fixer()
