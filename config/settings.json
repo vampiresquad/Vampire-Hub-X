@@ -1,1 +1,54 @@
+{
+  "tool_info": {
+    "name": "Vampire-DDOS-X",
+    "version": "1.0",
+    "author": "Muhammad Shourov (VAMPIRE)",
+    "github": "https://github.com/vampiresquad/Vampire-DDOS-X",
+    "license": "GPL-3.0",
+    "description": "An advanced and powerful DDoS & CyberOps framework for professionals and ethical hackers."
+  },
 
+  "admin_mode": {
+    "access_key": "VAMPIRE-ROOT-ACCESS-2025",
+    "log_admin_actions": true,
+    "ddos_power_level": "max",
+    "recon_depth": "deep",
+    "encryption_strength": "ultra"
+  },
+
+  "user_mode": {
+    "ddos_power_level": "low",
+    "recon_depth": "basic",
+    "encryption_strength": "simple",
+    "enable_logs": false
+  },
+
+  "default_settings": {
+    "logging": true,
+    "auto_fix_errors": true,
+    "check_for_updates": true,
+    "save_output_to_file": true,
+    "output_directory": "output/",
+    "language": "en",
+    "color_mode": "advanced"
+  },
+
+  "network": {
+    "default_timeout": 10,
+    "retry_attempts": 3,
+    "proxy_support": true,
+    "proxy_list": "data/proxies.txt"
+  },
+
+  "paths": {
+    "log_file": "logs/actions.log",
+    "template_dir": "templates/",
+    "module_dir": "modules/",
+    "banner_file": "config/banner.txt"
+  },
+
+  "disclaimer": {
+    "enabled": true,
+    "message": "This tool is for educational and authorized penetration testing use only. Unauthorized usage is strictly prohibited."
+  }
+}
