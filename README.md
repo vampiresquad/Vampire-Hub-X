@@ -1,5 +1,5 @@
 <h1 align="center">
-  ⚔️ VAMPIRE-HUB-X ⚔️
+  ☠️ VAMPIRE-HUB-X ☠️
 </h1>
 
 <p align="center">
@@ -9,55 +9,57 @@
 </p>
 
 <p align="center">
-  <b>The Most Powerful, Encrypted & Multi-Supported Ethical Hacking Toolkit Ever Created!</b><br>
-  <i>Secure | Colorful | Terminal Friendly | Auto-Fix Enabled | High-Level Encryption</i>
+  <b>The Most Advanced, Encrypted & Multi-Functional Ethical Hacking Toolkit Ever Built</b><br>
+  <i>Secure | Stylish | Terminal Optimized | Auto-Fix | Pro-Level Encryption</i>
 </p>
 
 ---
 
 ## ⚙️ What is Vampire-Hub-X?
 
-**Vampire-Hub-X** is a multi-featured, terminal-based professional cybersecurity toolkit developed by **Muhammad Shourov (VAMPIRE)** — designed for both beginners & advanced hackers.
+**Vampire-Hub-X** is a cutting-edge terminal-based hacking toolkit developed by <b>Muhammad Shourov (VAMPIRE)</b>, proudly under the <b>Vampire Squad</b> banner. This tool is designed for both <i>learning and real-world cyber operations</i>.
 
-- **Admin Mode** (With Password) — Grants access to high-powered DDoS & Info-Gathering tools (Encrypted).
-- **Normal Mode** (Free Access) — Gives limited but useful features for learners.
-- Everything inside is **fully encrypted**, secure, & protected from code theft.
+> "A tool that adapts to your level. Power for professionals. Simplicity for students."
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- [x] Colorful Interactive Terminal UI
-- [x] Multi-mode Support: Admin & Normal
-- [x] High-Powered DDoS Attacks
-- [x] Pro-Level Information Gathering
-- [x] Encrypted Core Files (Admin Only)
-- [x] Auto Error Detection & Auto-Fixer
-- [x] Compatible with Termux, Ubuntu, Linux
-- [x] Secure Entry via Master Password ** ('Collect Form Developer') **
-- [x] Banner + Disclaimer per Mode
-- [x] Professional Module Structure
-
----
-
-## 🧠 Modes Explained
-
-| Mode         | Access        | Features                                   |
-|--------------|---------------|--------------------------------------------|
-| Admin Mode   | Password: ('Collect Form Developer') | High-Level Tools (Encrypted) + Hidden Modules |
-| Normal Mode  | No Password   | Basic Tools for Educational Use            |
+- ✅ Color-Rich Interactive CLI Interface
+- ✅ Multi-Mode Access: Admin (Encrypted) & Normal (Public)
+- ✅ Powerful DDoS Modules (Admin Mode)
+- ✅ Advanced Reconnaissance & Fingerprinting Tools
+- ✅ End-to-End Encryption for Sensitive Scripts
+- ✅ Auto-Fix Engine: Detects & Repairs Missing Dependencies
+- ✅ Professional Modular Architecture
+- ✅ Designed for Termux | Ubuntu | Linux (Cross-Compatible)
+- ✅ Built-in Banner, Disclaimer & Tool Checker
+- ✅ Anti-Code Theft & Integrity Protection
 
 ---
 
-## 🔐 Security Layers
+## 🧠 Mode Breakdown
 
-- All sensitive scripts (DDoS & Info Gathering) are **AES Encrypted**
-- User cannot tamper with or leak core functionality
-- Auto-Fix system handles missing dependencies or errors on its own
+| Mode         | Access                         | Features                                               |
+|--------------|-------------------------------|--------------------------------------------------------|
+| **Admin Mode**  | Password Protected *(Collect from Developer)* | Full Power: DDoS, Deep Recon, Encryption, Hidden Tools |
+| **Normal Mode** | Public Access                | Lightweight Recon, Fun Tools, & Learning Essentials    |
 
 ---
 
-## 🚀 Installation
+## 🔐 Security & Obfuscation
+
+- All core scripts are **AES-Encrypted / Obfuscated** — cannot be reverse-engineered.
+- Key modules are auto-verified before execution.
+- Only the `launcher` script (`vampire_hub_x.py`) is exposed — actual code stays hidden.
+
+> **Important:** This tool is open for usage, but **source code is protected** to prevent unauthorized tampering.
+
+---
+
+## ⚡ Installation & Usage
+
+### Step-by-step:
 
 ```bash
 git clone https://github.com/vampiresquad/Vampire-Hub-X.git
