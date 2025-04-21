@@ -1,25 +1,49 @@
-# Python cache and compiled files
+# === Hide Python source files ===
+*.py
+
+# === Allow essential launcher script ===
+!vampire_hub_x.py
+
+# === Hide compiled bytecode ===
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 
-# Encrypted core files (keep secret)
-core/*.enc
+# === Virtual environments ===
+env/
+venv/
+.venv/
 
-# System files
+# === OS and editor files ===
 .DS_Store
-.env
+*.swp
+*.swo
+.idea/
+.vscode/
 
-# Logs and temp
+# === Log and debug files ===
 *.log
+logs/
+
+# === Secret or sensitive files ===
+config/settings.json
+config/tools_status.json
+*.bak
 *.tmp
 
-# Backups
-*.bak
+# === Binary or bundled files ===
+*.so
+*.dll
+*.exe
+*.zip
+*.tar.gz
+*.rar
+*.7z
 
-# IDE and editor config
-.vscode/
-.idea/
+# === Build directories ===
+build/
+dist/
+*.egg-info/
+*.whl
 
 # Git itself
 .git/
